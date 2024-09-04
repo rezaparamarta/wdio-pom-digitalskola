@@ -1,6 +1,7 @@
 import homePage from "../pageobjects/home.page";
 import loginPage from "../pageobjects/login.page";
-import { expect } from '@wdio/globals';
+import cartPage from "../pageobjects/cart.page";
+//import { expect } from '@wdio/globals';
 
 describe('Login Test', () => {
     it('Test 1 - Login with standard_user credentials', async () => {
@@ -27,6 +28,10 @@ describe('Login Test', () => {
     it('Test 4 - Sauce Labs Backpack item added to cart', async () => {
         // Menemukan elemen badge yang menunjukkan jumlah item di keranjang
         await $('//*[@id="shopping_cart_container"]/a/span');
+    });
+
+    it('Test 5 - Validate on Cart Page', async () => {
+        await cartPage.validateOnCartPage();
     });
 
     
