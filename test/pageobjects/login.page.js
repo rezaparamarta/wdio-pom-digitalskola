@@ -15,10 +15,6 @@ class LoginPage extends Page {
         return $('//input[@type="submit"]');
     }
 
-    // get errorMessage() {
-    //     return $('//*[@id="login_button_container"]/div/form/div[3]/h3');
-    // }
-
     // Class Methodnya
     async inputUsername(username) {
         await this.usernameTextbox.setValue(username);
@@ -38,13 +34,6 @@ class LoginPage extends Page {
         await this.inputPassword(password);
         await this.clickLoginButton();
     }
-    
-
-    // async validateWrongPasswordDisplayed() {
-    //     await expect(this.errorMessage).toHaveText(
-    //         expect.stringContaining('Epic sadface: Username and password do not match any user in this service')
-    //     );
-    // }
 
     open() {
         return super.open('');

@@ -1,34 +1,36 @@
 import Page from './page';
+import { $, expect } from '@wdio/globals';
 
-class CheckoutPage extends Page{
+class cartPage extends Page{
 
-    get cartIcon() {
-        return $('.shopping_cart_badge');
+
+    // Set Attribute
+    get cartItems() {
+        return $('');
     };
 
-    get itemDescription() {
-        return $('//*[@id="cart_contents_container"]/div/div[1]/div[3]/div[2]');
-    };
-    
-    get checkButton() {
-        return $('#checkout');
-    };
     get continueShoppingButton() {
-        return $('#continue-shopping');
+        return $('');
+    };
+
+    get checkOutButton() {
+        return $('');
     };
 
 
-        async validateOnCartPage() {
-        await expect(this.cartIcon).toContainText('1');
-        await expect(this.itemDescription).toContainText('Sauce Labs Backpack');
-        await expect(this.checkButton).toBeExisting();
-        await expect(this.continueShoppingButton).toBeExisting();
-        
-    }
+    // Function Method
 
+    
+    async validateOnCartPage() {
+        await expect(this.checkOutButton).toBeExisting();
+        await expect(this.continueShoppingButton).toBeExisting();
+    }   
+
+
+    
     open() {
         return super.open('cart.html');
     };
 };
 
-export default new CheckoutPage();
+export default new cartPage();

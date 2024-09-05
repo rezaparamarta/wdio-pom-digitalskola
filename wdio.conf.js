@@ -1,5 +1,6 @@
 export const config = {
     reporters: ['spec'],
+    baseUrl: 'https://www.saucedemo.com',
     //
     // ====================
     // Runner Configuration
@@ -54,7 +55,6 @@ export const config = {
         // capabilities for local browser web tests
         browserName: 'chrome' // or "firefox", "microsoftedge", "safari"
     }],
-
     //
     // ===================
     // Test Configurations
