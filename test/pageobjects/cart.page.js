@@ -1,36 +1,40 @@
-import Page from './page';
 import { $, expect } from '@wdio/globals';
+import Page from './page';
 
-class cartPage extends Page{
+class CartPage extends Page {
+    // Selectors
+    get itemDescription() {
+        return $('.inventory_item_name'); // Selector for item description
+    }
 
-
-    // Set Attribute
-    get cartItems() {
-        return $('');
-    };
+    get removeButton() {
+        return $('#remove-sauce-labs-backpack'); // Selector for the Remove button
+    }
 
     get continueShoppingButton() {
-        return $('');
-    };
+        return $('#continue-shopping'); // Selector for the Continue Shopping button
+    }
 
-    get checkOutButton() {
-        return $('');
-    };
+    get checkoutButton() {
+        return $('#checkout'); // Selector for the Checkout button
+    }
 
-
-    // Function Method
-
-    
-    async validateOnCartPage() {
-        await expect(this.checkOutButton).toBeExisting();
-        await expect(this.continueShoppingButton).toBeExisting();
-    }   
-
-
-    
+    // Function to open the cart page
     open() {
-        return super.open('cart.html');
-    };
-};
+        return super.open('cart.html'); // Navigates to the cart page
+    }
 
-export default new cartPage();
+    // Function to validate item description
+    async validateItemDescription() {
+        await expect(this.itemDescription).toHaveText('Sauce Labs Backpack'); // Validates item name
+    }
+
+    // Function to validate buttons existence
+    async validateButtons() {
+        await expect(this.removeButton).toBeDisplayed(); // Validates Remove button is displayed
+        await expect(this.continueShoppingButton).toBeDisplayed(); // Validates Continue Shopping button is displayed
+        await expect(this.checkoutButton).toBeDisplayed(); // Validates Checkout button is displayed
+    }
+}
+
+export default new CartPage();

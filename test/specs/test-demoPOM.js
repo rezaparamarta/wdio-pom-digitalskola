@@ -12,8 +12,15 @@ describe('Login Test', () => {
 
     it('Test 2 - Add an Item to Cart', async () => {
         await homePage.open(); // Open the homepage
-        await homePage.clickAddToCartButton(); // Click the Add to Cart button
-        await homePage.validateItemInCart(); // Validate the item is in the cart
+        await homePage.clickAddToCartButton();
+        await homePage.validateItemInCart();
     });
-    
+
+    it('Test 3 - Validate the item description, Remove, Continue Shopping, and Checkout buttons', async () => {
+        // Open the cart page
+        await cartPage.open();
+        await cartPage.validateItemDescription();
+        await cartPage.validateButtons();
+        await browser.pause(2000);
+    });
 });
