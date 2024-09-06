@@ -29,6 +29,10 @@ class CartPage extends Page {
         await expect(this.itemDescription).toHaveText('Sauce Labs Backpack'); // Validates item name
     }
 
+    // Function method to click button checkout
+    async clickCheckoutButton() {
+        await this.checkoutButton.click();
+    }
     // Function to validate buttons existence
     async validateButtons() {
         await expect(this.removeButton).toBeDisplayed(); // Validates Remove button is displayed
